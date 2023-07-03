@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Profil;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class RegisterForm extends Component
@@ -22,7 +24,12 @@ class RegisterForm extends Component
     public function submit()
     {
         User::created($this->validate());
-        dd('User registered with success');
+       $profil =  Profil::create(
+            [
+                'users_id' => Auth::id()
+            ]
+            );
+        dd('User registered with success at '.$profil->id);
     }
     public function render()
     {
