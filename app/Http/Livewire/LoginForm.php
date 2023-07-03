@@ -13,12 +13,11 @@ class LoginForm extends Component
         'password' => 'required',
         'email' => 'required|email'
     ];
-    public function updated($email, $password)
+    public function updated($propertyName)
 
     {
 
-        $this->validateOnly($email);
-        $this->validateOnly($password);
+        $this->validateOnly($propertyName);
     }
     public function submit()
     {

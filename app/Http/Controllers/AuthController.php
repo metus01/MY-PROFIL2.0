@@ -11,4 +11,8 @@ class AuthController extends Controller
     {
         return view('users.auth.login');
     }
+    public function register() : View
+    {
+        return view('users.auth.register');
+    }
 }

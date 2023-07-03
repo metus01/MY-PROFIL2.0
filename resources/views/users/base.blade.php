@@ -26,12 +26,12 @@
                         <li class="nav-item">
                             <a class="nav-link @if (!Route::has('login'))
                             active
-                            @endif" href="#">Login</a>
+                            @endif" href="{{ route('login') }}">Login</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link @if (!Route::has('register'))
                             active
-                            @endif" href="#">Register</a>
+                            @endif" href="{{ route('register') }}">Register</a>
                         </li>
                 </div>
             </div>
