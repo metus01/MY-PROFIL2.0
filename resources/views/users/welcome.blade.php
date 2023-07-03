@@ -10,40 +10,28 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
+                        <li class="nav-item ">
+                            <a class="nav-link active" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Login</a>
+                            <a class="nav-link @if (!Route::has('login'))
+                            active
+                            @endif" href="#">Login</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Register</a>
+                        <li class="nav-item active">
+                            <a class="nav-link @if (!Route::has('register'))
+                            active
+                            @endif" href="#">Register</a>
                         </li>
-                        {{-- @if (Route::has('login'))
-                            @auth
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Home</a>
-                                </li>
-                            @else
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">Login</a>
-                                </li>
-                                @if (Route::has('register'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">Register</a>
-                                    </li>
-                                @endif
-                            @endauth --}}
                 </div>
-
             </div>
             </div>
         </nav>
     </header>
     <main>
         <div class="container">
-            <h1 class="my-3 text-center text" style="">Bienvenue sur MY-PROFIL</h1>
-            <div class="m-2 accordion" id="accordionPanelsStayOpenExample">
+            <h1 class="my-3text-center text" style="">Bienvenue sur MY-PROFIL</h1>
+            <div class="m-2  accordion" data-aos="fade-left" id="accordionPanelsStayOpenExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
