@@ -30,7 +30,7 @@
     </header>
     <main>
         <div class="container">
-            <h1 class="my-3text-center text" style="">Bienvenue sur MY-PROFIL</h1>
+            <h1 class="my-3  text  text-center " style="">Bienvenue sur MY-PROFIL</h1>
             <div class="m-2  accordion" data-aos="fade-left" id="accordionPanelsStayOpenExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
