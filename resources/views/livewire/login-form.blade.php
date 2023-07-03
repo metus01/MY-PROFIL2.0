@@ -1,4 +1,9 @@
 <form wire:submit.prevent="submit" class="gap-2">
+    @if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+    @endif
     <label for="email" class="form-label">Email</label>
     <input type="email" class="form-control" wire:model="email">
     @error('email')
