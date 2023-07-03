@@ -1,3 +1,5 @@
-<div>
-    {{-- Nothing in the world is as soft and yielding as water. --}}
+<div class="container">
+    <h1 class="text text-success">Plus de </h1>
+    <div class="alert alert-success">{{ $usersCounter }}</div>
+    <h1 class="text text-success">profils </h1>
 </div>
