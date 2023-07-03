@@ -7,8 +7,8 @@ use Illuminate\View\View;
 
 class AuthController extends Controller
 {
-    public function login() : View
+    public function login(): View
     {
-        
+        return view('users.auth.login');
     }
 }

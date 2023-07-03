@@ -13,15 +13,20 @@ class LoginForm extends Component
         'password' => 'required',
         'email' => 'required|email'
     ];
+    public function updated($email, $password)
+
+    {
+
+        $this->validateOnly($email);
+        $this->validateOnly($password);
+    }
     public function submit()
     {
         $this->validate();
-        if(Auth::attempt($this->validate()))
-        {
+        if (Auth::attempt($this->validate())) {
             dd('User Logged');
-        }else
-        {
-            return back()->with('error' , 'Login Failed');
+        } else {
+            return back()->with('error', 'Login Failed');
         }
     }
     public function render()
