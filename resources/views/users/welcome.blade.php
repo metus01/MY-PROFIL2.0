@@ -10,7 +10,16 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
-                        @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Register</a>
+                        </li>
+                        {{-- @if (Route::has('login'))
                             @auth
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Home</a>
@@ -24,9 +33,9 @@
                                         <a class="nav-link" href="{{ route('register') }}">Register</a>
                                     </li>
                                 @endif
-                            @endauth
+                            @endauth --}}
                 </div>
-                @endif
+
             </div>
             </div>
         </nav>
