@@ -96,7 +96,7 @@
         <div class="container d-flex justify-content-center align-items-center">
             <a href="#" style=" border-radius:7px;width: 100%" class="mt-3 btn btn-dark">Register</a>
         </div>
-        <livewire:user-number-counter>
+        {{-- <livewire:user-number-counter> --}}
     </main>
 
 @endsection
