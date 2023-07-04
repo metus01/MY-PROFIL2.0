@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Profil extends Model
 {
@@ -14,8 +15,8 @@ class Profil extends Model
     [
         'user_id',
     ];
-    public function user() :BelongsTo
+    public function user() :HasOne
     {
-        return $this->belongsTo(User::class);
+        return $this->hasOne(User::class);
     }
 }

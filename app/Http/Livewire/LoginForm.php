@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -21,7 +22,9 @@ class LoginForm extends Component
     {
         $this->validate();
         if (Auth::attempt($this->validate())) {
-            return to_route('profil.create')->with('welcome'  , 'Welcome to your profil');
+            $user = User::where('id', Auth::id())->get();
+            dd($user);
+            return to_route('profil.create')->with('welcome', 'Welcome to your profil');
         } else {
             return back()->with('error', 'Login Failed , credentials not found');
         }

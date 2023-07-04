@@ -15,10 +15,10 @@ return new class extends Migration
         Schema::create('profils', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)->nullable();
-            $table->string('sexe')->nullable();
-            $table->string('phone_number')->nullable();
-            $table->mediumText('bio')->nullable();
-            $table->string('path')->nullable();
+            $table->string('sexe')->default('M');
+            $table->string('phone_number')->default('+33 025 0254');
+            $table->mediumText('bio')->default("Hello Iam  the current user ");
+            $table->string('path')->default('ma_photo.png');
             $table->timestamps();
         });
     }
