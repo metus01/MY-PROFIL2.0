@@ -12,6 +12,11 @@ class CreateProfilComponent extends Component
 {
     use WithFileUploads;
     public Profil $profil;
+    protected $rules = [
+        'profil.sexe' => 'required',
+        'profil.bio' => 'required|min:12',
+        'profil.phone_number' => 'required'
+    ];
     // public string $sexe = 'Perso';
     // public string $phone_number = '+33 021 0547';
     // public string $bio = "I\'am current user";
@@ -36,18 +41,10 @@ class CreateProfilComponent extends Component
     }
     public function save()
     {
+        $this->profil->validate();
         $path = $this->photo->store();
-    //    $updated  =  $this->profil->update(
-    //         [
-    //             'sexe' => $this->sexe,
-    //             'phone_number' => $this->phone_number,
-    //             'bio' => $this->bio,
-    //             'path' => $path,
-    //         ]
-    //         );
-    //         dd($this->profil);
-    $this->profil->path = $path;
-    $this->profil->save();
+        $this->profil->path = $path;
+        $this->profil->save();
     }
     public function render()
     {
