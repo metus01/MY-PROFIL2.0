@@ -17,22 +17,7 @@ class CreateProfilComponent extends Component
         'profil.bio' => 'required|min:12',
         'profil.phone_number' => 'required'
     ];
-    // public string $sexe = 'Perso';
-    // public string $phone_number = '+33 021 0547';
-    // public string $bio = "I\'am current user";
-     public $photo;
-    // public string $path = 'ma_photo.png';
-    // public function updated($propertyName)
-    // {
-    //     $this->validate(
-    //         $propertyName,
-    //         [
-    //             'profil.sexe' => 'required',
-    //             'phone_number' => 'required',
-    //             'photo.bio' => 'required',
-    //         ]
-    //     );
-    //}
+    public $photo;
     public function uploadedPhoto()
     {
         $this->validate([
@@ -45,7 +30,6 @@ class CreateProfilComponent extends Component
         $path = $this->photo->store();
         $this->profil->path = $path;
         $this->profil->save();
-        dd($this->profil);
     }
     public function render()
     {
