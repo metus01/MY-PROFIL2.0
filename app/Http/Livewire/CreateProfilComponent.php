@@ -17,6 +17,7 @@ class CreateProfilComponent extends Component
     public string $bio = "I\'am current user";
     public $photo;
     public string $path = 'ma_photo.png';
+    public $file_progress_upload_bar = 0;
 
     public function mount()
     {
@@ -40,12 +41,17 @@ class CreateProfilComponent extends Component
         $this->validate([
 
             'photo' => 'image|max:1024',
-
         ]);
+        // $this->file_progress_upload_bar = 0;
+        // $this->profil =
+        //  $this->photo->storeAs('photos', $this->photo->getClientOriginalName() , 'public' , function($uploadedFile)
+        // {
+        //     $this->file_progress_upload_bar = ($uploadedFile->getSize()/$uploadedFile->getMaxFilesize()*100);
+        // });
     }
     public function save()
     {
-        $this->profil = $this->photo->storeAs('photos', 'profils');
+        dd($this->profil);
     }
     public function render()
     {
