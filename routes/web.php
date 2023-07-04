@@ -23,4 +23,4 @@ Route::get('/', function () {
 Route::get('/users' , [UserController::class , 'index'])->name('users')->middleware('guest');
 Route::get('/login' , [AuthController::class ,  'login'])->name('login')->middleware('guest');
 Route::get('/register' , [AuthController::class ,  'register'])->name('register')->middleware('guest');
-Route::get('/profil/{user}' , [ProfilController::class , 'create'])->middleware('auth')->name('profil.create');
+Route::get('/profil' , [ProfilController::class , 'create'])->middleware('auth')->name('profil.create');

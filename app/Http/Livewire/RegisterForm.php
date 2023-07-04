@@ -23,10 +23,10 @@ class RegisterForm extends Component
     }
     public function submit()
     {
-        User::created($this->validate());
+       $user =  User::create($this->validate());
        $profil =  Profil::create(
             [
-                'users_id' => Auth::id()
+                'user_id' => $user->id
             ]
             );
         dd('User registered with success at '.$profil->id);
