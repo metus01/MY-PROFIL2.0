@@ -1,20 +1,20 @@
 <form action=""  wire:submit.prevent="save" enctype="multipart/form-data">
     <label for="sexe" class="form-label">Sexe</label>
-    <select wire:model.lazy="sexe" class="form-select">
+    <select wire:model.lazy="profil.sexe" class="form-select">
         <option value="M">Masculin</option>
         <option value="F">Féminin</option>
         <option value="Perso">Personnalisé</option>
     </select>
     <label for="phone_number" class="form-label">Phone Number</label>
-    <input type="tel" name="" id="" wire:model="phone_number" class="form-control">
-    @error('phone_number')
+    <input type="tel" name="" id="" wire:model="profil.phone_number" class="form-control">
+    @error('profil.phone_number')
     <div class="is-invalid">
         {{ $message }}
     </div>
     @enderror
     <label for="bio" class="form-label">Votre Bio</label>
-    <textarea name="" id="" class="form-control" cols="30" wire:model="bio" rows="10"></textarea>
-    @error('bio')
+    <textarea name="" id="" class="form-control" cols="30" wire:model="profil.bio" rows="10"></textarea>
+    @error('profil.bio')
     <div class="is-invalid">
         {{ $message }}
     </div>

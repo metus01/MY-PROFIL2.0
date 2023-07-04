@@ -20,7 +20,7 @@ class CreateProfilComponent extends Component
     // public string $sexe = 'Perso';
     // public string $phone_number = '+33 021 0547';
     // public string $bio = "I\'am current user";
-    // public $photo;
+     public $photo;
     // public string $path = 'ma_photo.png';
     // public function updated($propertyName)
     // {
@@ -41,10 +41,11 @@ class CreateProfilComponent extends Component
     }
     public function save()
     {
-        $this->profil->validate();
+        $this->validate();
         $path = $this->photo->store();
         $this->profil->path = $path;
         $this->profil->save();
+        dd($this->profil);
     }
     public function render()
     {
