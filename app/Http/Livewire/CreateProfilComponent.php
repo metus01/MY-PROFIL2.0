@@ -21,9 +21,10 @@ class CreateProfilComponent extends Component
 
     public function mount()
     {
-        $this->profil->sexe !== null ?  $this->sexe : $this->profil->sexe;
-        $this->profil->phone_number !== null ? $this->phone_number : $this->profil->phone_number;
-        $this->profil->bio = $this->bio;
+        dd($this->profil);
+        // $this->profil->sexe !== null ?  $this->sexe : $this->profil->sexe;
+        // $this->profil->phone_number !== null ? $this->phone_number : $this->profil->phone_number;
+        // $this->profil->bio = $this->bio;
     }
     public function updated($propertyName)
     {
