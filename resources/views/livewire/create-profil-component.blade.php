@@ -1,14 +1,24 @@
-<form action="" enctype="multipart/form-data">
+<form action=""  wire:submit.prevent="save" enctype="multipart/form-data">
     <label for="sexe" class="form-label">Sexe</label>
-    <select wire:model.lazy="profil.sexe" class="form-select">
+    <select wire:model.lazy="sexe" class="form-select">
         <option value="M">Masculin</option>
         <option value="F">Féminin</option>
         <option value="Perso">Personnalisé</option>
     </select>
     <label for="phone_number" class="form-label">Phone Number</label>
-    <input type="tel" name="" id="" wire:model="profil.phone_number" class="form-control">
+    <input type="tel" name="" id="" wire:model="phone_number" class="form-control">
+    @error('phone_number')
+    <div class="is-invalid">
+        {{ $message }}
+    </div>
+    @enderror
     <label for="bio" class="form-label">Votre Bio</label>
-    <textarea name="" id="" class="form-control" cols="30" wire:model="profil.bio" rows="10"></textarea>
+    <textarea name="" id="" class="form-control" cols="30" wire:model="bio" rows="10"></textarea>
+    @error('bio')
+    <div class="is-invalid">
+        {{ $message }}
+    </div>
+    @enderror
     <div x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true"
         x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false"
         x-on:livewire-upload-progress="progress = $event.detail.progress">
@@ -17,8 +27,8 @@
         <input type="file" class="form-control" wire:model="photo">
         <!-- Progress Bar -->
         <div x-show="isUploading">
-            <progress max="100" x-bind:value="progress"></progress>
+            <progress  class="form-progress" max="100" x-bind:value="progress"></progress>
         </div>
     </div>
-    <button wire:submit.prevent="save" class="btn btn-primary container-fluid">Complèter le profil</button>
+    <button type="submit" class="btn btn-primary container-fluid">Complèter le profil</button>
 </form>

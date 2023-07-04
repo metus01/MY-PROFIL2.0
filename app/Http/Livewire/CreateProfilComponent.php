@@ -12,43 +12,42 @@ class CreateProfilComponent extends Component
 {
     use WithFileUploads;
     public Profil $profil;
-    public string $sexe = 'Perso';
-    public string $phone_number = '+33 021 0547';
-    public string $bio = "I\'am current user";
-    public $photo;
-    public string $path = 'ma_photo.png';
-    public function mount()
-    {
-         $this->profil->sexe !== null ?  $this->sexe : $this->profil->sexe;
-         $this->profil->phone_number !== null ? $this->phone_number : $this->profil->phone_number;
-        $this->profil->bio = $this->bio;
-    }
-    public function updated($propertyName)
-    {
-        $this->validateOnly(
-            $propertyName,
-            [
-                'profil.sexe' => 'required',
-                'profil.phone_number' => 'required',
-                'profil.bio' => 'required',
-            ]
-        );
-    }
+    // public string $sexe = 'Perso';
+    // public string $phone_number = '+33 021 0547';
+    // public string $bio = "I\'am current user";
+    // public $photo;
+    // public string $path = 'ma_photo.png';
+    // public function updated($propertyName)
+    // {
+    //     $this->validate(
+    //         $propertyName,
+    //         [
+    //             'profil.sexe' => 'required',
+    //             'phone_number' => 'required',
+    //             'photo.bio' => 'required',
+    //         ]
+    //     );
+    //}
     public function uploadedPhoto()
     {
         $this->validate([
             'photo' => 'image|max:1024',
         ]);
-        // $this->file_progress_upload_bar = 0;
-        // $this->profil =
-        //  $this->photo->storeAs('photos', $this->photo->getClientOriginalName() , 'public' , function($uploadedFile)
-        // {
-        //     $this->file_progress_upload_bar = ($uploadedFile->getSize()/$uploadedFile->getMaxFilesize()*100);
-        // });
     }
     public function save()
     {
-        dd($this->profil);
+        $path = $this->photo->store();
+    //    $updated  =  $this->profil->update(
+    //         [
+    //             'sexe' => $this->sexe,
+    //             'phone_number' => $this->phone_number,
+    //             'bio' => $this->bio,
+    //             'path' => $path,
+    //         ]
+    //         );
+    //         dd($this->profil);
+    $this->profil->path = $path;
+    $this->profil->save();
     }
     public function render()
     {
