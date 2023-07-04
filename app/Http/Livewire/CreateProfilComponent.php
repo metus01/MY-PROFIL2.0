@@ -24,38 +24,28 @@ class CreateProfilComponent extends Component
         $this->profil->phone_number = $this->phone_number;
         $this->profil->bio = $this->bio;
     }
-//     <form wire:submit.prevent="save">
-
-//     <input type="file" wire:model="photo">
-
-
-
-//     @error('photo') <span class="error">{{ $message }}</span> @enderror
-
-
-
-// //     <button type="submit">Save Photo</button>
-// public function save()
-
-// {
-
-//     $this->validate([
-
-//         'photo' => 'image|max:1024', // 1MB Max
-
-//     ]);
-
-
-
-//     $this->photo->store('photos');
-
-// }
-
-// }
-// </form>
     public function updated($propertyName)
     {
-        
+        $this->validateOnly(
+            $propertyName,
+            [
+                'profil.sexe' => 'required',
+                'profil.phone_number' => 'required',
+                'profil.bio' => 'required',
+            ]
+        );
+    }
+    public function uploadedPhoto()
+    {
+        $this->validate([
+
+            'photo' => 'image|max:1024',
+
+        ]);
+    }
+    public function save()
+    {
+        $this->profil = $this->photo->storeAs('photos', 'profils');
     }
     public function render()
     {
