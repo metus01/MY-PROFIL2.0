@@ -22,8 +22,6 @@ class LoginForm extends Component
     {
         $this->validate();
         if (Auth::attempt($this->validate())) {
-            $user = User::where('id', Auth::id())->get();
-            dd($user);
             return to_route('profil.create')->with('welcome', 'Welcome to your profil');
         } else {
             return back()->with('error', 'Login Failed , credentials not found');

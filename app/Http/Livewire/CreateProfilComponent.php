@@ -17,14 +17,11 @@ class CreateProfilComponent extends Component
     public string $bio = "I\'am current user";
     public $photo;
     public string $path = 'ma_photo.png';
-    public $file_progress_upload_bar = 0;
-
     public function mount()
     {
-        dd($this->profil);
-        // $this->profil->sexe !== null ?  $this->sexe : $this->profil->sexe;
-        // $this->profil->phone_number !== null ? $this->phone_number : $this->profil->phone_number;
-        // $this->profil->bio = $this->bio;
+         $this->profil->sexe !== null ?  $this->sexe : $this->profil->sexe;
+         $this->profil->phone_number !== null ? $this->phone_number : $this->profil->phone_number;
+        $this->profil->bio = $this->bio;
     }
     public function updated($propertyName)
     {
@@ -40,7 +37,6 @@ class CreateProfilComponent extends Component
     public function uploadedPhoto()
     {
         $this->validate([
-
             'photo' => 'image|max:1024',
         ]);
         // $this->file_progress_upload_bar = 0;

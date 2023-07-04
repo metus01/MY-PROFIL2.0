@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class)->nullable();
             $table->string('sexe')->default('M');
             $table->string('phone_number')->default('+33 025 0254');
-            $table->mediumText('bio')->default("Hello Iam  the current user ");
+            $table->mediumText('bio')->nullable();
             $table->string('path')->default('ma_photo.png');
             $table->timestamps();
         });

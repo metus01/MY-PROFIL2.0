@@ -11,8 +11,7 @@ class ProfilController extends Controller
 {
     public function create()
     {
-        $profil = Auth::user();
-        dd($profil);
+        $profil = Profil::where('user_id' , Auth::id())->get()->first();
         return view(
             'users.profil.create',
             [
