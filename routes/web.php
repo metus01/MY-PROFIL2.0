@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FilController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -24,3 +25,4 @@ Route::get('/users' , [UserController::class , 'index'])->name('users')->middlew
 Route::get('/login' , [AuthController::class ,  'login'])->name('login')->middleware('guest');
 Route::get('/register' , [AuthController::class ,  'register'])->name('register')->middleware('guest');
 Route::get('/profil' , [ProfilController::class , 'create'])->middleware('auth')->name('profil.create');
+Route::get('/actu'  , FilController::class)->middleware('auth')->name('actu');
